@@ -1,0 +1,102 @@
+import {
+  intro,
+  outro,
+  confirm,
+  select,
+  spinner,
+  isCancel,
+  cancel,
+  text,
+} from '@clack/prompts';
+import { spawn, exec } from 'node:child_process';
+import { readFile, writeFile } from 'node:fs';
+import { setTimeout as sleep } from 'node:timers/promises';
+import color from 'picocolors';
+
+async function main() {
+  console.log();
+  intro(color.inverse(' rawr-create '));
+
+  const projectType = await select({
+    message: 'Pick a element type.',
+    options: [
+      { value: 'i', label: 'Input' },
+      { value: 's', label: 'Section', hint: 'Designed for models' },
+    ],
+  });
+
+  if (isCancel(projectType)) {
+    cancel('Operation cancelled');
+    return process.exit(0);
+  } else {
+    switch (projectType) {
+      case 'i':
+        let nameI = await getName("What is your input's name?", "email")
+        if (!nameI) {
+          cancel('Write a correct name');
+          return process.exit(0);
+        }
+        const sI = spinner();
+        sI.start('Making input...');
+        await cmd(`npx ng g c components/inputs/input-${nameI} --style none --prefix `)
+        sI.stop('Input created!');
+      break
+      case 's':
+        let nameS = await getName("What is your section's name?", "actor")
+        if (!nameS) {
+          cancel('Write a correct name');
+          return process.exit(0);
+        }
+        const sS = spinner();
+        sS.start('Making model...');
+        await cmd(`npx ng g c sections/${nameS} --style none --prefix section`)
+        await cmd(`npx ng g s services/${nameS}`)
+        sS.stop('Model created!');
+      break
+    }
+  }
+
+  //const shouldContinue = await confirm({
+  //  message: 'Do you want to continue?',
+  //});
+  //if (isCancel(shouldContinue)) {
+  //  cancel('Operation cancelled');
+  //  return process.exit(0);
+  //}
+
+  outro("Goodbye! 🌊");
+  await sleep(500);
+}
+
+async function getName(title = 'How do you want to name your element?',
+  placeholder = "Element's name") {
+  const name = await text({
+    message: title,
+    placeholder: placeholder,
+  });
+
+  if (isCancel(name)) {
+    cancel('Operation cancelled');
+    return process.exit(0);
+  }
+  return name
+}
+
+async function cmd(command) {
+  return new Promise((resolve) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return process.exit(0);
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return process.exit(0);
+      }
+      console.log(`stdout: ${stdout}`);
+      resolve(true)
+  });
+  })
+}
+
+main().catch(console.error);

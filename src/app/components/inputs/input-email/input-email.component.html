@@ -1,0 +1,13 @@
+<div class="mb-3">
+  <div [formGroup]="form" class="input-group">
+    <input [type]="type" [formControlName]="name" [placeholder]="placeholder"
+    class="form-control">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+      </div>
+    </div>
+  </div>
+  <error-bag [control]="control" [name]="name" [errors]="errors"
+  [ignoreDataArray]="ignoreDataArray"></error-bag>
+</div>

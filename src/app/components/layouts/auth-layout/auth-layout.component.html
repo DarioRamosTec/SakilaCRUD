@@ -1,0 +1,39 @@
+<div class="wrapper">
+
+  <app-main-header></app-main-header>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper">
+    <section class="content-header" style="padding-bottom: 10px;">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{{ dataService.info().title }}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a [routerLink]="'/'">Dashboard</a></li>
+              <li class="breadcrumb-item active">{{ dataService.info().title }}</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="max-height: 75vh; overflow-y: hidden;">
+      <ng-content></ng-content>
+    </section>
+  </div>
+
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2025 <a href="https://grrrverse.com">SakilaLTE.io</a>.</strong>
+    Azeneth, Darío y Jared.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>UTT</b> 8A
+    </div>
+  </footer>
+
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+</div>

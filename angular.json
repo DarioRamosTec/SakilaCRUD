@@ -27,9 +27,25 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/plugins/fontawesome-free/css/all.min.css",
+              "src/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "src/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+              "src/plugins/jqvmap/jqvmap.min.css",
+              "src/css/adminlte.min.css",
+              "src/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "src/plugins/daterangepicker/daterangepicker.css",
+              "src/plugins/summernote/summernote-bs4.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/plugins/sparklines/sparkline.js",
+              "src/plugins/jqvmap/maps/jquery.vmap.usa.js",
+              "src/plugins/daterangepicker/daterangepicker.js",
+              "src/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "src/js/adminlte.js",
+              "src/js/pages/dashboard.js",
+              "src/plugins/chart.js/Chart.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,7 +66,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -85,9 +107,25 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/plugins/fontawesome-free/css/all.min.css",
+              "src/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "src/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+              "src/plugins/jqvmap/jqvmap.min.css",
+              "src/css/adminlte.min.css",
+              "src/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "src/plugins/daterangepicker/daterangepicker.css",
+              "src/plugins/summernote/summernote-bs4.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/plugins/sparklines/sparkline.js",
+              "src/plugins/jqvmap/maps/jquery.vmap.usa.js",
+              "src/plugins/daterangepicker/daterangepicker.js",
+              "src/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "src/js/adminlte.js",
+              "src/js/pages/dashboard.js",
+              "src/plugins/chart.js/Chart.min.js"
+            ]
           }
         }
       }
