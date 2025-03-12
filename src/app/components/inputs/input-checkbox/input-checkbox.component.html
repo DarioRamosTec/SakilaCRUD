@@ -1,0 +1,9 @@
+<div class="mb-3">
+  <div [formGroup]="form" class="form-check">
+    <input class="form-check-input" [type]="type" [formControlName]="name" >
+    <label class="form-check-label" for="flexCheckDefault" [translate]="'form.'+name">
+    </label>
+  </div>
+  <error-bag [control]="control" [name]="name" [errors]="errors"
+  [ignoreDataArray]="ignoreDataArray"></error-bag>
+</div>

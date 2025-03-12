@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div id="example2_wrapper" style="overflow-x: hidden; overflow-y: auto; max-height: 55vh;" class="mt-2 dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" style="margin-bottom: 0px;" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+      <div id="example2_wrapper" style="overflow-x: hidden; overflow-x: auto; width: 100%; overflow-y: auto; max-height: 55vh;" class="mt-2 dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" style="margin-bottom: 0px;" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
         <thead style="position: sticky; top: 0px; background-color: rgb(40, 40, 40); color: white;">
           <tr>
             @for (section of sections; track $index) {
@@ -57,23 +57,126 @@
                     <td class="">
                       @if (model) {
                         @let valueActor = getActor(getIndex(model, section.title));
-                        <a [routerLink]="'/auth/actors'" [fragment]='"id"+model[section.title]' class="">
+                        <a [routerLink]="'/auth/actors'" class="">
                           {{ valueActor }}
                         </a>
                       } @else {
-                        <div translate="Aún no definido">
+                        <div translate="Yet not set">
                         </div>
+                      }
+                    </td>
+                  }
+                  @case ("Country") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getCountry(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/countries'" class="">
+                          {{ value }}
+                        </a>
+                      } @else {
+                        <div translate="Yet not set">
+                        </div>
+                      }
+                    </td>
+                  }
+                  @case ("Address") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getAddress(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/addresses'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Store") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getStore(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/stores'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Inventory") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getInventory(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/inventories'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Film") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getFilm(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/films'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Customer") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getCustomer(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/customers'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Staff") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getStaff(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/staffs'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("City") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getCity(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/staffs'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("Rental") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getRental(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/rentals'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
+                  @case ("BlobPicture") {
+                    @let image = getBlobPicture(model[section.title]);
+                    <td>
+                      @if (image) {
+                        <img src="{{image}}">
+                      } @else {
+                        {{ 'Yet not set' }}
                       }
                     </td>
                   }
                   @default {
                     <td class="">
-                      {{ getIndex(model, section.title) ?? 'Aún no definido' }}
+                      {{ getIndex(model, section.title) ?? 'Yet not set' }}
                     </td>
                   }
                 }
               }
-              <td class="" style="max-width: 50px;">
+              <td class="" style="min-width: 50px;">
                 <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
                   <button class="btn btn-sm btn-outline-secondary" (click)="edit(model)"
                   data-bs-toggle="modal" data-bs-target="#createBackdrop">

@@ -1,0 +1,19 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-select-model [form]="form" [errors]="errors" [options]="stores.models"
+      [modelId]="'store_id'" [modelName]="'store_id'" [control]="store_id" [name]="'store_id'" />
+      <input-text [form]="form" [control]="first_name" [name]="'first_name'" [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-text [form]="form" [control]="last_name" [name]="'last_name'" [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-email [alternative]="true" [form]="form" [control]="email" [name]="'email'"
+      [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="addresses.models"
+      [modelId]="'address_id'" [modelName]="'address'" [control]="store_id" [name]="'address_id'" />
+      <input-checkbox [form]="form" [control]="active" [name]="'active'" [errors]="errors"></input-checkbox>
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

@@ -55,11 +55,11 @@ export class BaseSectionComponent extends FormComponent {
 
     this.activatedRoute.queryParams.subscribe(
       params => {
-        this.firstPage = false
         this.page = params['page'] ?? 1
         if (!this.firstPage) {
           this.index(false)
         }
+        this.firstPage = false
       }
     );
   }

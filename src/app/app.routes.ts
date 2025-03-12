@@ -42,10 +42,55 @@ export const routes: Routes = [
       },
       {
         path: 'actors',
-        loadComponent: () =>
-          import('./sections/actor/actor.component').then(
-            (m) => m.ActorComponent
-        ),
+        loadComponent: () => import('./sections/actor/actor.component').then((m) => m.ActorComponent),
+      },
+      {
+        path: 'categories',
+        loadComponent: () => import('./sections/category/category.component').then((m) => m.CategoryComponent),
+      },
+      {
+        path: 'cities',
+        loadComponent: () => import('./sections/city/city.component').then((m) => m.CityComponent),
+      },
+      {
+        path: 'customers',
+        loadComponent: () => import('./sections/customer/customer.component').then((m) => m.CustomerComponent),
+      },
+      {
+        path: 'countries',
+        loadComponent: () => import('./sections/country/country.component').then((m) => m.CountryComponent),
+      },
+      {
+        path: 'inventories',
+        loadComponent: () => import('./sections/inventory/inventory.component').then((m) => m.InventoryComponent),
+      },
+      {
+        path: 'languages',
+        loadComponent: () => import('./sections/language/language.component').then((m) => m.LanguageComponent),
+      },
+      {
+        path: 'payments',
+        loadComponent: () => import('./sections/payment/payment.component').then((m) => m.PaymentComponent),
+      },
+      {
+        path: 'rentals',
+        loadComponent: () => import('./sections/rental/rental.component').then((m) => m.RentalComponent),
+      },
+      {
+        path: 'staffs',
+        loadComponent: () => import('./sections/staff/staff.component').then((m) => m.StaffComponent),
+      },
+      {
+        path: 'stores',
+        loadComponent: () => import('./sections/store/store.component').then((m) => m.StoreComponent),
+      },
+      {
+        path: 'addresses',
+        loadComponent: () => import('./sections/address/address.component').then((m) => m.AddressComponent),
+      },
+      {
+        path: 'films',
+        loadComponent: () => import('./sections/film/film.component').then((m) => m.FilmComponent),
       },
     ]
   },

@@ -51,6 +51,7 @@ async function main() {
         sS.start('Making model...');
         await cmd(`npx ng g c sections/${nameS} --style none --prefix section`)
         await cmd(`npx ng g s services/${nameS}`)
+        await cmd(`npx ng g i interfaces/models/${nameS}`)
         sS.stop('Model created!');
       break
     }
@@ -87,11 +88,9 @@ async function cmd(command) {
     exec(command, (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
-        return process.exit(0);
       }
       if (stderr) {
         console.log(`stderr: ${stderr}`);
-        return process.exit(0);
       }
       console.log(`stdout: ${stdout}`);
       resolve(true)

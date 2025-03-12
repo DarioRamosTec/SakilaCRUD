@@ -13,6 +13,15 @@ import { Location } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModalType } from '../../interfaces/modal-type';
 import { Pagination } from '../../interfaces/pagination';
+import { CountryService } from '../../services/country.service';
+import { StoreService } from '../../services/store.service';
+import { AddressService } from '../../services/address.service';
+import { InventoryService } from '../../services/inventory.service';
+import { FilmService } from '../../services/film.service';
+import { CustomerService } from '../../services/customer.service';
+import { StaffService } from '../../services/staff.service';
+import { RentalService } from '../../services/rental.service';
+import { CityService } from '../../services/city.service';
 
 @Component({
   selector: 'app-section',
@@ -52,7 +61,11 @@ export class SectionComponent extends BaseComponent {
 
   constructor(protected activatedRoute: ActivatedRoute, protected location: Location,
     protected actorService: ActorService, protected dataService: DataService,
-    protected router: Router)
+    protected router: Router, protected countryService: CountryService,
+    protected storeService: StoreService, protected addressService: AddressService,
+    protected inventoryService: InventoryService, protected filmService: FilmService,
+    protected customerService: CustomerService, protected staffService: StaffService,
+    protected rentalService: RentalService, protected cityService: CityService)
   {
     super()
     effect(() => {
@@ -100,10 +113,9 @@ export class SectionComponent extends BaseComponent {
   }
 
   getIndex(value: any, item: string, type: string = this.type) {
-    switch (type) {
-      default:
-        return value[item as keyof Model]
-    }
+    let val = value[item as keyof Model]
+    val = (val == "" ? null : val )
+    return val
   }
 
   getDate(date: string) {
@@ -128,12 +140,74 @@ export class SectionComponent extends BaseComponent {
     return model?.first_name
   }
 
+  getCountry(id: number) {
+    let model = this.countryService.models().models.find((value) => value.country_id == id)
+    return model?.country
+  }
+
+  getAddress(id: number) {
+    let model = this.addressService.models().models.find((value) => value.address_id == id)
+    return model?.address
+  }
+
+  getStore(id: number) {
+    let model = this.storeService.models().models.find((value) => value.store_id == id)
+    return model?.store_id
+  }
+
+  getInventory(id: number) {
+    let model = this.inventoryService.models().models.find((value) => value.inventory_id == id)
+    return model?.inventory_id
+  }
+
+  getFilm(id: number) {
+    let model = this.filmService.models().models.find((value) => value.film_id == id)
+    return model?.title
+  }
+
+  getCustomer(id: number) {
+    let model = this.customerService.models().models.find((value) => value.customer_id == id)
+    return model?.first_name
+  }
+
+  getStaff(id: number) {
+    let model = this.staffService.models().models.find((value) => value.staff_id == id)
+    return model?.first_name
+  }
+
+  getCity(id: number) {
+    let model = this.cityService.models().models.find((value) => value.city_id == id)
+    return model?.city
+  }
+
+  getRental(id: number) {
+    let model = this.rentalService.models().models.find((value) => value.rental_id == id)
+    return model?.rental_date
+  }
+
+  getBlobPicture(value: any) {
+    if (value) {
+      var url = window.URL || window.webkitURL;
+      var imageSrc = url.createObjectURL(value.data);
+      return undefined
+    }
+    return value
+  }
+
   getExtensionValue(sectionExtension: SectionExtension, value: any) {
     switch (sectionExtension.type) {
-      case "Actor":
-        return this.getActor(value)
-      default:
-        return value
+      case "Actor": return this.getActor(value)
+      case "Country": return this.getCountry(value)
+      case "Store": return this.getStore(value)
+      case "Address": return this.getAddress(value)
+      case "Inventory": return this.getInventory(value)
+      case "Film": return this.getFilm(value)
+      case "Customer": return this.getCustomer(value)
+      case "Staff": return this.getStaff(value)
+      case "City": return this.getCity(value)
+      case "Rental": return this.getRental(value)
+      case "BlobPicture": return this.getBlobPicture(value)
+      default: return value
     }
   }
 

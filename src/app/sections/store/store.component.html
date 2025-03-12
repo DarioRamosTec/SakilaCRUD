@@ -1,0 +1,14 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-select-model [form]="form" [errors]="errors" [options]="addreses.models"
+      [modelId]="'address_id'" [modelName]="'address'" [control]="address_id" [name]="'address_id'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="staffs.models"
+      [modelId]="'staff_id'" [modelName]="'first_name'" [control]="manager_staff_id" [name]="'manager_staff_id'" />
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

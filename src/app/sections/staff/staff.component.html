@@ -1,0 +1,22 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="first_name" [name]="'first_name'" [errors]="errors" [placeholder]="'Insert any number'" />
+      <input-text [form]="form" [control]="last_name" [name]="'last_name'" [errors]="errors" />
+      <input-select-model [form]="form" [errors]="errors" [options]="addreses.models"
+      [modelId]="'address_id'" [modelName]="'address'" [control]="address_id" [name]="'address_id'" />
+      <input-email [alternative]="true" [form]="form" [control]="email" [name]="'email'"
+      [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="stores.models"
+      [modelId]="'store_id'" [modelName]="'store_id'" [control]="store_id" [name]="'store_id'" />
+      <input-checkbox [form]="form" [control]="active" [name]="'active'" [errors]="errors"></input-checkbox>
+      <input-text [form]="form" [control]="username" [name]="'username'" [errors]="errors" />
+      <input-password [alternative]="true" [form]="form" [control]="password" [name]="'password'"
+      [errors]="errors" />
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

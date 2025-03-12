@@ -1,13 +1,21 @@
 <div class="mb-3">
-  <div [formGroup]="form" class="input-group">
-    <input [type]="type" [formControlName]="name" [placeholder]="placeholder"
-    class="form-control">
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-envelope"></span>
+  @if (alternative) {
+    <div [formGroup]="form" class="form-group">
+      <label [translate]="'form.'+name"></label>
+      <input [type]="type" [formControlName]="name" [placeholder]="placeholder"
+      class="form-control">
+    </div>
+  } @else {
+    <div [formGroup]="form" class="input-group">
+      <input [type]="type" [formControlName]="name" [placeholder]="placeholder"
+      class="form-control">
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-envelope"></span>
+        </div>
       </div>
     </div>
-  </div>
+  }
   <error-bag [control]="control" [name]="name" [errors]="errors"
   [ignoreDataArray]="ignoreDataArray"></error-bag>
 </div>

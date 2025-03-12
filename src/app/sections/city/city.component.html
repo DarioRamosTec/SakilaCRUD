@@ -1,0 +1,13 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="city" [name]="'city'" [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="countries.models"
+      [modelId]="'country_id'" [modelName]="'country'" [control]="country_id" [name]="'country_id'" />
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

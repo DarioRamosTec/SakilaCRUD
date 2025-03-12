@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow-y: auto; max-height: 100vh;">
   <a [routerLink]="'/'" class="brand-link">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="dist/img/SakilaLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">SakilaLTE</span>
   </a>
 
@@ -9,14 +9,85 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
           <a [routerLink]="'/auth/actors'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
-            <p>
-              Actors
-            </p>
+            <i class="nav-icon fas fa-user"></i><p>Actors</p>
           </a>
         </li>
-
+        <li class="nav-item">
+          <a [routerLink]="'/auth/categories'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-tag"></i><p>Categories</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/cities'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-home"></i><p>Cities</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/customers'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-users"></i><p>Customers</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/countries'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-globe"></i><p>Countries</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/inventories'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-indent"></i><p>Inventories</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/languages'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-flag"></i><p>Languages</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/payments'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-credit-card"></i><p>Payments</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/rentals'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-tags"></i><p>Rentals</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/staffs'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-id-card"></i><p>Staffs</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/stores'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-archive"></i><p>Stores</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/addresses'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-paper-plane"></i><p>Addresses</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/films'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-film"></i><p>Films</p>
+          </a>
+        </li>
         <li class="nav-header">MISCELLANEOUS</li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/film_actors'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-backward"></i><p>Films actors</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/film_categories'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-forward"></i><p>Films categories</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/auth/film_texts'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-play"></i><p>Films texts</p>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

@@ -1,0 +1,18 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-select-model [form]="form" [errors]="errors" [options]="customers.models"
+      [modelId]="'customer_id'" [modelName]="'first_name'" [control]="customer_id" [name]="'customer_id'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="staffs.models"
+      [modelId]="'staff_id'" [modelName]="'first_name'" [control]="staff_id" [name]="'staff_id'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="rentals.models"
+      [modelId]="'rental_id'" [modelName]="'rental_date'" [control]="rental_id" [name]="'rental_id'" />
+      <input-text [form]="form" [control]="amount" [name]="'amount'" [errors]="errors" [placeholder]="'Insert any number'" [type]="'number'" />
+      <input-text [form]="form" [control]="payment_date" [name]="'payment_date'" [errors]="errors" [type]="'date'" />
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

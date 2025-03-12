@@ -1,0 +1,18 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="address" [name]="'address'" [errors]="errors" />
+      <input-text [form]="form" [control]="address2" [name]="'address2'" [errors]="errors" />
+      <input-text [form]="form" [control]="district" [name]="'district'" [errors]="errors" />
+      <input-select-model [form]="form" [errors]="errors" [options]="cities.models"
+      [modelId]="'city_id'" [modelName]="'city'" [control]="city_id" [name]="'city_id'" />
+      <input-text [form]="form" [control]="postal_code" [name]="'postal_code'" [errors]="errors" />
+      <input-text [form]="form" [control]="phone" [name]="'phone'" [errors]="errors" />
+
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

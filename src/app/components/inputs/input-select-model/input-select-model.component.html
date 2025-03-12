@@ -1,0 +1,20 @@
+
+<div class="mb-3">
+  <div [formGroup]="form" class="form-group">
+    <label [translate]="'form.'+name"></label>
+    <select [formControlName]="name" class="custom-select">
+      <option selected>Open this select menu</option>
+      {{ modelName }}
+      {{ modelId }}
+      @if (modelName && modelId) {
+        @for (option of options; track $index) {
+          <option [value]="option[modelId]">
+            {{ option[modelName] }}
+          </option>
+        }
+      }
+    </select>
+  </div>
+  <error-bag [control]="control" [name]="name" [errors]="errors"
+  [ignoreDataArray]="ignoreDataArray"></error-bag>
+</div>

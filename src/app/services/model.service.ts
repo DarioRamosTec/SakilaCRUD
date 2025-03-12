@@ -41,26 +41,42 @@ export class ModelService extends BaseService {
           loading: true
         }
       })
-      this.index().subscribe({
-        next(value) {
-          self.models.update((data) => {
-            return {
-              models: value.data,
-              loading: false
-            }
-          })
-        },
-        error(err) {
-          self.models.update((data) => {
-            return {
-              models: data.models,
-              loading: false,
-              error: true
-            }
-          })
-        },
-      })
+      this.indexModels()
     }
+  }
+
+  indexModels(update: boolean = false, page: number | undefined = undefined) {
+    let self = this
+    this.index(page).subscribe({
+      next(value) {
+        self.models.update((data) => {
+          let models = []
+          if (update) {
+            data.models.push(...value.data)
+            models = data.models
+          } else {
+            models = value.data
+          }
+
+          return {
+            models: models,
+            loading: false
+          }
+        })
+        if (value.meta?.nextPageUrl) {
+          self.indexModels(true, +value.meta.nextPageUrl.split("?page=")[1])
+        }
+      },
+      error(err) {
+        self.models.update((data) => {
+          return {
+            models: data.models,
+            loading: false,
+            error: true
+          }
+        })
+      },
+    })
   }
 
   unshiftModels(overwrite: boolean = false, ...models: Model[]) {
