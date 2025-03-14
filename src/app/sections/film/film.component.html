@@ -1,1 +1,24 @@
-<p>film works!</p>
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'city'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="title" [name]="'title'" [errors]="errors" />
+      <input-text [form]="form" [control]="description" [name]="'description'" [errors]="errors" />
+      <input-text [form]="form" [control]="release_year" [name]="'release_year'" [type]="'number'" [errors]="errors" />
+      <input-select-model [form]="form" [errors]="errors" [options]="languages.models"
+      [modelId]="'language_id'" [modelName]="'name'" [control]="language_id" [name]="'language_id'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="languages.models"
+      [modelId]="'language_id'" [modelName]="'name'" [control]="original_language_id" [name]="'original_language_id'" />
+      <input-text [form]="form" [control]="rental_duration" [name]="'rental_duration'" [type]="'number'" [errors]="errors" />
+      <input-text [form]="form" [control]="rental_rate" [name]="'rental_rate'" [errors]="errors" />
+      <input-text [form]="form" [control]="length" [name]="'length'" [type]="'number'" [errors]="errors" />
+      <input-text [form]="form" [control]="replacement_cost" [name]="'replacement_cost'" [type]="'number'" [errors]="errors" />
+      <input-text [form]="form" [control]="rating" [name]="'rating'" [errors]="errors" />
+      <input-text [form]="form" [control]="special_features" [name]="'special_features'" [errors]="errors" />
+
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

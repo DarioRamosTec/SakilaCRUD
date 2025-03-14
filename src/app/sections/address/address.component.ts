@@ -69,7 +69,7 @@ export class AddressComponent extends BaseSectionComponent {
     })
     this.modelService = addressService
     dataService.info.set({
-      title: "Cities"
+      title: "Address"
     })
     this.index()
     cityService.initModels()
@@ -97,6 +97,3 @@ export class AddressComponent extends BaseSectionComponent {
     return this.form.get('location');
   }
 }
-
-
-

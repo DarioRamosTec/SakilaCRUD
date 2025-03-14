@@ -92,6 +92,14 @@ export const routes: Routes = [
         path: 'films',
         loadComponent: () => import('./sections/film/film.component').then((m) => m.FilmComponent),
       },
+      {
+        path: 'film-actors',
+        loadComponent: () => import('./sections/film-actor/film-actor.component').then((m) => m.FilmActorComponent),
+      },
+      {
+        path: 'film-categories',
+        loadComponent: () => import('./sections/film-category/film-category.component').then((m) => m.FilmCategoryComponent),
+      },
     ]
   },
   { path: 'not-found', component: NotFoundComponent },

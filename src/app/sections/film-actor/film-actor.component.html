@@ -1,0 +1,15 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-select-model [form]="form" [errors]="errors" [options]="actors.models"
+      [modelId]="'actor_id'" [modelName]="'first_name'" [control]="actor_id" [name]="'actor_id'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="films.models"
+      [modelId]="'film_id'" [modelName]="'title'" [control]="film_id" [name]="'film_id'" />
+
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

@@ -1,0 +1,17 @@
+import { Injectable, signal, WritableSignal } from '@angular/core';
+import { ModelsSignal } from '../interfaces/model-signal';
+import { Actor } from '../interfaces/models/actor';
+import { ModelService } from './model.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FilmCategoryService extends ModelService {
+  override url: string = "auth/film_categories/";
+  override models: WritableSignal<ModelsSignal<Actor>> = signal({
+    models: [],
+    setTable: false,
+    loading: false
+  })
+}
+

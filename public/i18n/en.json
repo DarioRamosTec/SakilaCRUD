@@ -33,6 +33,16 @@
     "district": "District",
     "postal_code": "Postal Code",
     "phone": "Phone",
-    "location": "Location"
+    "location": "Location",
+    "title": "Title",
+    "description": "Description",
+    "release_year": "Release Year",
+    "original_language_id": "Original Language ID",
+    "rental_duration": "Rental Duration",
+    "rental_rate": "Rental Rate",
+    "length": "Length",
+    "replacement_cost": "Replacement Cost",
+    "rating": "Rating",
+    "special_features": "Special Features"
   }
 }

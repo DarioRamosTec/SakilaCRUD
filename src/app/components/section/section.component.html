@@ -55,8 +55,8 @@
                   }
                   @case ("Actor") {
                     <td class="">
-                      @if (model) {
-                        @let valueActor = getActor(getIndex(model, section.title));
+                      @let valueActor = getActor(getIndex(model, section.title));
+                      @if (model && valueActor) {
                         <a [routerLink]="'/auth/actors'" class="">
                           {{ valueActor }}
                         </a>
