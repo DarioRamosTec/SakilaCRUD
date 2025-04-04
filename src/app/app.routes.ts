@@ -3,6 +3,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { notAuthGuard } from './guards/not-auth.guard';
 import { authGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
+import { SendResetPasswordComponent } from './pages/send-reset-password/send-reset-password.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'send-resest-password',
+        component: SendResetPasswordComponent
       },
     ]
   },
@@ -91,6 +96,14 @@ export const routes: Routes = [
       {
         path: 'films',
         loadComponent: () => import('./sections/film/film.component').then((m) => m.FilmComponent),
+      },
+      {
+        path: 'roles',
+        loadComponent: () => import('./sections/role/role.component').then((m) => m.RoleComponent),
+      },
+      {
+        path: 'users',
+        loadComponent: () => import('./sections/user/user.component').then((m) => m.UserComponent),
       },
     ]
   },

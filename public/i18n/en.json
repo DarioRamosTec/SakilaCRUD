@@ -43,6 +43,10 @@
     "length": "Length",
     "replacement_cost": "Replacement Cost",
     "rating": "Rating",
-    "special_features": "Special Features"
+    "special_features": "Special Features",
+    "full_name": "Full Name",
+    "fullName": "Full Name",
+    "id": "ID",
+    "role_id": "Role ID"
   }
 }

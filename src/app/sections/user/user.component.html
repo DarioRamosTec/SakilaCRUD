@@ -1,0 +1,16 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'fullName'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="fullName" [name]="'fullName'" [errors]="errors" />
+      <input-email [alternative]="true" [form]="form" [control]="email" [name]="'email'"
+      [errors]="errors" [placeholder]="'Insert any text'" />
+      <input-select-model [form]="form" [errors]="errors" [options]="roles.models"
+      [modelId]="'id'" [modelName]="'name'" [control]="role_id" [name]="'role_id'" />
+
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

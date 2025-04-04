@@ -31,8 +31,10 @@
                 }
               }
             }
-            <th class="sorting" tabindex="0" rowspan="1" colspan="1">
-            </th>
+            @if (authService.user()?.roleId != 3) {
+              <th class="sorting" tabindex="0" rowspan="1" colspan="1">
+              </th>
+            }
           </tr>
         </thead>
         <tbody>
@@ -159,6 +161,16 @@
                       }
                     </td>
                   }
+                  @case ("Role") {
+                    <td class="">
+                      @if (model) {
+                        @let value = getRole(getIndex(model, section.title));
+                        <a [routerLink]="'/auth/roles'" class="">{{ value }}</a>
+                      } @else {
+                        <div translate="Yet not set"></div>
+                      }
+                    </td>
+                  }
                   @case ("BlobPicture") {
                     @let image = getBlobPicture(model[section.title]);
                     <td>
@@ -176,18 +188,20 @@
                   }
                 }
               }
-              <td class="" style="min-width: 50px;">
-                <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
-                  <button class="btn btn-sm btn-outline-secondary" (click)="edit(model)"
-                  data-bs-toggle="modal" data-bs-target="#createBackdrop">
-                    <i class="fas fa-edit"></i> Edit
-                  </button>
-                  <button class="ml-2 btn btn-sm bg-danger" (click)="delete(model)"
-                  data-bs-toggle="modal" data-bs-target="#deleteBackdrop">
-                    <i class="fas fa-trash"></i> Delete
-                  </button>
-                </div>
-              </td>
+              @if (authService.user()?.roleId != 3) {
+                <td class="" style="min-width: 50px;">
+                  <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                    <button class="btn btn-sm btn-outline-secondary" (click)="edit(model)"
+                    data-bs-toggle="modal" data-bs-target="#createBackdrop">
+                      <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="ml-2 btn btn-sm bg-danger" (click)="delete(model)"
+                    data-bs-toggle="modal" data-bs-target="#deleteBackdrop">
+                      <i class="fas fa-trash"></i> Delete
+                    </button>
+                  </div>
+                </td>
+              }
             </tr>
           }
       </tbody>

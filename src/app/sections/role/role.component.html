@@ -1,0 +1,12 @@
+<app-section [exceptions]="exceptions" [extensions]="extensions"
+[methodExtensions]="methodExtensions" [name]="'name'">
+  <div create>
+    <form-base [form]="form" [errors]="errors">
+      <input-text [form]="form" [control]="name" [name]="'name'" [errors]="errors" />
+
+      <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+        Save changes
+      </button-base>
+    </form-base>
+  </div>
+</app-section>

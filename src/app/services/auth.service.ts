@@ -32,4 +32,12 @@ export class AuthService extends BaseService {
   me() : Observable<Response<User>> {
     return this.http.get<Response<User>>(`${environment.apiUrl}${this.url}me`);
   }
+
+  logout(data: LoginRequest) : Observable<Response<Token>> {
+    return this.http.post<Response<Token>>(`${environment.apiUrl}${this.url}logout`, data);
+  }
+
+  sendResetPassword(data: any) : Observable<Response<User>> {
+    return this.http.post<Response<User>>(`${environment.apiUrl}send-reset-password`, data);
+  }
 }

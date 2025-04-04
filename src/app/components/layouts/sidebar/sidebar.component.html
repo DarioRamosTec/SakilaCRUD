@@ -17,17 +17,17 @@
             <i class="nav-icon fas fa-tag"></i><p>Categories</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/cities'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-home"></i><p>Cities</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/customers'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-users"></i><p>Customers</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/countries'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-globe"></i><p>Countries</p>
           </a>
@@ -37,32 +37,32 @@
             <i class="nav-icon fas fa-indent"></i><p>Inventories</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/languages'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-flag"></i><p>Languages</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/payments'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-credit-card"></i><p>Payments</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/rentals'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-tags"></i><p>Rentals</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/staffs'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-id-card"></i><p>Staffs</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/stores'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-archive"></i><p>Stores</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
           <a [routerLink]="'/auth/addresses'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-paper-plane"></i><p>Addresses</p>
           </a>
@@ -70,6 +70,16 @@
         <li class="nav-item">
           <a [routerLink]="'/auth/films'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
             <i class="nav-icon fas fa-film"></i><p>Films</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
+          <a [routerLink]="'/auth/roles'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-address-book"></i><p>Roles</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.user()?.roleId != 2">
+          <a [routerLink]="'/auth/users'" [routerLinkActive]="'navbar-link-selected'" class="nav-link">
+            <i class="nav-icon fas fa-male"></i><p>Users</p>
           </a>
         </li>
       </ul>

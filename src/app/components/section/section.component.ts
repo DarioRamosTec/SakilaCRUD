@@ -1,4 +1,4 @@
-import { Component, effect, Input } from '@angular/core';
+import { Component, effect, Input, inject } from '@angular/core';
 import { AuthLayoutComponent } from "../layouts/auth-layout/auth-layout.component";
 import Section from '../../interfaces/section';
 import { SectionExtension } from '../../interfaces/section-extension';
@@ -22,6 +22,8 @@ import { CustomerService } from '../../services/customer.service';
 import { StaffService } from '../../services/staff.service';
 import { RentalService } from '../../services/rental.service';
 import { CityService } from '../../services/city.service';
+import { RoleService } from '../../services/role.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-section',
@@ -59,13 +61,16 @@ export class SectionComponent extends BaseComponent {
   dropdownSectionActionId = `dropdownSectionAction${this._id++}`
   dropdownSectionActionButtonId = `dropdownSectionActionButton${this._id++}`
 
+  authService = inject(AuthService)
+
   constructor(protected activatedRoute: ActivatedRoute, protected location: Location,
     protected actorService: ActorService, protected dataService: DataService,
     protected router: Router, protected countryService: CountryService,
     protected storeService: StoreService, protected addressService: AddressService,
     protected inventoryService: InventoryService, protected filmService: FilmService,
     protected customerService: CustomerService, protected staffService: StaffService,
-    protected rentalService: RentalService, protected cityService: CityService)
+    protected rentalService: RentalService, protected cityService: CityService,
+    protected roleService: RoleService)
   {
     super()
     effect(() => {
@@ -185,6 +190,11 @@ export class SectionComponent extends BaseComponent {
     return model?.rental_date
   }
 
+  getRole(id: number) {
+    let model = this.roleService.models().models.find((value) => value.id == id)
+    return model?.name
+  }
+
   getBlobPicture(value: any) {
     if (value) {
       var url = window.URL || window.webkitURL;
@@ -206,6 +216,7 @@ export class SectionComponent extends BaseComponent {
       case "Staff": return this.getStaff(value)
       case "City": return this.getCity(value)
       case "Rental": return this.getRental(value)
+      case "Role": return this.getRole(value)
       case "BlobPicture": return this.getBlobPicture(value)
       default: return value
     }
