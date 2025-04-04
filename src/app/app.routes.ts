@@ -4,6 +4,7 @@ import { notAuthGuard } from './guards/not-auth.guard';
 import { authGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { SendResetPasswordComponent } from './pages/send-reset-password/send-reset-password.component';
+import { VerifySessionComponent } from './pages/verify-session/verify-session.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'verify',
+        component: VerifySessionComponent
       },
       {
         path: 'send-resest-password',
@@ -44,6 +49,27 @@ export const routes: Routes = [
           import('./pages/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent
         ),
+      },
+      {
+        path: 'me',
+        loadComponent: () => import('./pages/me/me.component').then((m) => m.MeComponent),
+        children: [
+          {
+            path: '',
+            redirectTo: 'activity',
+            pathMatch: 'full'
+          },
+          {
+
+            path: 'activity',
+            loadComponent: () => import('./pages/activity/activity.component').then((m) => m.ActivityComponent),
+          },
+          {
+
+            path: 'reset-password',
+            loadComponent: () => import('./pages/reset-password/reset-password.component').then((m) => m.ResetPasswordComponent),
+          }
+        ]
       },
       {
         path: 'actors',

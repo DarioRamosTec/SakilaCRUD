@@ -44,7 +44,7 @@ export class UserComponent extends BaseSectionComponent {
     password: [this.formDefault.password, [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
     role_id: [this.formDefault.role_id, [Validators.required]],
   });
-  override exceptions: string[] = ["last_update", "deleted_at", "password", "created_at", "updated_at"]
+  override exceptions: string[] = ["last_update", "deleted_at", "password", "created_at", "updated_at", "verify_code"]
   override extensions: SectionExtension[] = [{
     title: "role_id",
     type: "Role"

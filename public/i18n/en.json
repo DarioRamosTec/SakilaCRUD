@@ -47,6 +47,9 @@
     "full_name": "Full Name",
     "fullName": "Full Name",
     "id": "ID",
-    "role_id": "Role ID"
+    "role_id": "Role ID",
+    "password": "Password",
+    "password_confirmation": "Password Confirmation",
+    "code": "Código"
   }
 }

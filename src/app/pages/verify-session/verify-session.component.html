@@ -1,0 +1,26 @@
+<div class="login-page" style="min-height: 496.390625px;">
+  <div class="login-box">
+    <div class="login-logo">
+      <a [routerLink]="''"><b>Sakila</b>LTE</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <h4 class="login-box-msg">Verificar sesión</h4>
+
+        <form-base [form]="form" [errors]="errors" [showError]="true">
+
+          <input-password [alternative]="true" [form]="form" [control]="code" [name]="'code'" [errors]="errors" />
+
+          <button-base [disabled]="!form.valid" [form]="form" (action)="submit()">
+            Verificar sesión
+          </button-base>
+
+          <button (click)="send()" type="button" class="btn btn-block btn-info btn-sm mt-2">Mandar correo electrónico</button>
+
+        </form-base>
+      </div>
+    </div>
+
+  </div>
+</div>

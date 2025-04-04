@@ -1,0 +1,51 @@
+<auth-layout>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <img class="profile-user-img img-fluid img-circle" style="object-fit: cover;" src="../../dist/img/liz.png" alt="User profile picture">
+              </div>
+
+              <h3 class="profile-username text-center">{{ authService.user()?.fullName }}</h3>
+
+              <p class="text-muted text-center">{{ authService.user()?.email }}</p>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+          <!-- About Me Box -->
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header p-2">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link" [routerLinkActive]="'active'" [routerLink]="'activity'" data-toggle="tab">Activity</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLinkActive]="'active'" [routerLink]="'reset-password'" data-toggle="tab">Change Password</a></li>
+              </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+              <div class="tab-content">
+                <router-outlet />
+              </div>
+              <!-- /.tab-content -->
+            </div><!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+
+ </auth-layout>
