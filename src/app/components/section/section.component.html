@@ -2,11 +2,13 @@
   <div class="card" style="overflow-y: auto; max-height: 74vh;">
     <div class="card-body">
       <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="dt-buttons btn-group flex-wrap">
-            <button (click)="create()" type="button" data-bs-toggle="modal" data-bs-target="#createBackdrop" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="Create record" type="button"><span>Create record</span></button>
+        @if (authService.user()?.roleId != 3) {
+          <div class="col-sm-12 col-md-6">
+            <div class="dt-buttons btn-group flex-wrap">
+              <button (click)="create()" type="button" data-bs-toggle="modal" data-bs-target="#createBackdrop" class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="Create record" type="button"><span>Create record</span></button>
+            </div>
           </div>
-        </div>
+        }
 
         <div class="col-sm-12 col-md-6 d-none">
           <div class="input-group">
